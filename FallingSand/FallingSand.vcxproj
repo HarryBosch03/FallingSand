@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{16E30BD2-E4FD-48F1-A570-9CC77D967DD9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FallingSand</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)/external/include/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/external/lib/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SolutionDir)external\lib\$(Platform)-$(Configuration)\*;$(SolutionDir)external\lib\*;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../external/include/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)external\lib\$(Platform)-$(Configuration)\*;$(SolutionDir)external\lib\*;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\external\include\glad\glad.c" />
+    <ClCompile Include="..\external\include\imguizmo\GraphEditor.cpp" />
+    <ClCompile Include="..\external\include\imguizmo\ImCurveEdit.cpp" />
+    <ClCompile Include="..\external\include\imguizmo\ImGradient.cpp" />
+    <ClCompile Include="..\external\include\imguizmo\ImGuizmo.cpp" />
+    <ClCompile Include="..\external\include\imguizmo\ImSequencer.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\external\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Drawing.cpp" />
+    <ClCompile Include="Enviroment.cpp" />
+    <ClCompile Include="FallingSand.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\external\dll\glfw3.dll" />
+    <Content Include="..\external\dll\glfw3dll.lib" />
+    <Content Include="..\external\dll\x64-Debug\glfw3_mt.lib" />
+    <Content Include="..\external\dll\x64-Release\glfw3.lib" />
+    <Content Include="..\external\include\glm\CMakeLists.txt" />
+    <Content Include="..\external\include\imguizmo\LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="..\external\lib\x64-Debug" />
+    <Folder Include="..\external\lib\x64-Release" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\external\include\glad\glad.h" />
+    <ClInclude Include="..\external\include\glad\khrplatform.h" />
+    <ClInclude Include="..\external\include\glfw\glfw3.h" />
+    <ClInclude Include="..\external\include\glfw\glfw3native.h" />
+    <ClInclude Include="..\external\include\glm\common.hpp" />
+    <ClInclude Include="..\external\include\glm\exponential.hpp" />
+    <ClInclude Include="..\external\include\glm\ext.hpp" />
+    <ClInclude Include="..\external\include\glm\fwd.hpp" />
+    <ClInclude Include="..\external\include\glm\geometric.hpp" />
+    <ClInclude Include="..\external\include\glm\glm.hpp" />
+    <ClInclude Include="..\external\include\glm\integer.hpp" />
+    <ClInclude Include="..\external\include\glm\mat2x2.hpp" />
+    <ClInclude Include="..\external\include\glm\mat2x3.hpp" />
+    <ClInclude Include="..\external\include\glm\mat2x4.hpp" />
+    <ClInclude Include="..\external\include\glm\mat3x2.hpp" />
+    <ClInclude Include="..\external\include\glm\mat3x3.hpp" />
+    <ClInclude Include="..\external\include\glm\mat3x4.hpp" />
+    <ClInclude Include="..\external\include\glm\mat4x2.hpp" />
+    <ClInclude Include="..\external\include\glm\mat4x3.hpp" />
+    <ClInclude Include="..\external\include\glm\mat4x4.hpp" />
+    <ClInclude Include="..\external\include\glm\matrix.hpp" />
+    <ClInclude Include="..\external\include\glm\packing.hpp" />
+    <ClInclude Include="..\external\include\glm\trigonometric.hpp" />
+    <ClInclude Include="..\external\include\glm\vec2.hpp" />
+    <ClInclude Include="..\external\include\glm\vec3.hpp" />
+    <ClInclude Include="..\external\include\glm\vec4.hpp" />
+    <ClInclude Include="..\external\include\glm\vector_relational.hpp" />
+    <ClInclude Include="..\external\include\imguizmo\GraphEditor.h" />
+    <ClInclude Include="..\external\include\imguizmo\ImCurveEdit.h" />
+    <ClInclude Include="..\external\include\imguizmo\ImGradient.h" />
+    <ClInclude Include="..\external\include\imguizmo\ImGuizmo.h" />
+    <ClInclude Include="..\external\include\imguizmo\ImSequencer.h" />
+    <ClInclude Include="..\external\include\imguizmo\ImZoomSlider.h" />
+    <ClInclude Include="..\external\include\imgui\imconfig.h" />
+    <ClInclude Include="..\external\include\imgui\imgui.h" />
+    <ClInclude Include="..\external\include\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\external\include\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\external\include\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\external\include\imgui\imgui_internal.h" />
+    <ClInclude Include="..\external\include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\external\include\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\external\include\imgui\imstb_truetype.h" />
+    <ClInclude Include="Drawing.h" />
+    <ClInclude Include="Enviroment.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\shaders\sprite.frag" />
+    <None Include="..\assets\shaders\sprite.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

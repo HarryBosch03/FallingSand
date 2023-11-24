@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{ef6f36e3-508d-4117-8bed-ebf60a6d9d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{a9505fb6-2ba7-4678-9300-4264ccf01a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\glm">
+      <UniqueIdentifier>{3da1ea38-9a2f-4ca2-8a59-dff1965bc005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\glfw">
+      <UniqueIdentifier>{06e5d8bc-fac5-4211-abe8-c9e4c37e0b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\glad">
+      <UniqueIdentifier>{527f841a-d52f-4e88-ba4e-4fc66cd7febf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\imgui">
+      <UniqueIdentifier>{fc6881e2-60dd-4001-947e-c81175912a65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\imguizmo">
+      <UniqueIdentifier>{7a52de48-2bb2-40fa-925a-0286f82bbdd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enviroment">
+      <UniqueIdentifier>{9132d00b-c726-4fec-8f0f-3fca8f1ad02c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{a643e036-9038-4750-8443-438e5ec5cfe9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FallingSand.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\glad\glad.c">
+      <Filter>External\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_demo.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_draw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_impl_glfw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_impl_opengl3.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_tables.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imgui\imgui_widgets.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imguizmo\GraphEditor.cpp">
+      <Filter>External\imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imguizmo\ImCurveEdit.cpp">
+      <Filter>External\imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imguizmo\ImGradient.cpp">
+      <Filter>External\imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imguizmo\ImGuizmo.cpp">
+      <Filter>External\imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\imguizmo\ImSequencer.cpp">
+      <Filter>External\imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="Enviroment.cpp">
+      <Filter>Enviroment</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawing.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\external\include\glad\glad.h">
+      <Filter>External\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glad\khrplatform.h">
+      <Filter>External\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glfw\glfw3.h">
+      <Filter>External\glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glfw\glfw3native.h">
+      <Filter>External\glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\common.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\exponential.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\ext.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\fwd.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\geometric.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\glm.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\integer.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat2x2.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat2x3.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat2x4.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat3x2.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat3x3.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat3x4.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat4x2.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat4x3.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\mat4x4.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\matrix.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\packing.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\trigonometric.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\vec2.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\vec3.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\vec4.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\glm\vector_relational.hpp">
+      <Filter>External\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imconfig.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imgui.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imgui_impl_glfw.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imgui_impl_opengl3.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imgui_internal.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imstb_rectpack.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imstb_textedit.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imgui\imstb_truetype.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\GraphEditor.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\ImCurveEdit.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\ImGradient.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\ImGuizmo.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\ImSequencer.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\imguizmo\ImZoomSlider.h">
+      <Filter>External\imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="Enviroment.h">
+      <Filter>Enviroment</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Drawing.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\shaders\sprite.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\sprite.vert">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
