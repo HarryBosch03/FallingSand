@@ -1,2 +1,6 @@
-﻿  Graphics.cpp
+﻿  FallingSand.cpp
+  Game.cpp
+  Graphics.cpp
+  Shader.cpp
+  Generating Code...
   FallingSand.vcxproj -> C:\Users\s210179\Documents\Development\c++\FallingSand\x64\Debug\FallingSand.exe

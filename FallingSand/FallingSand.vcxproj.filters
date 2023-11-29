@@ -90,6 +90,9 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\glad\glad.h">
@@ -237,12 +240,24 @@
     <ClInclude Include="Shader.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Logging.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\shaders\sprite.frag">
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\assets\shaders\sprite.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\error.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\error.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

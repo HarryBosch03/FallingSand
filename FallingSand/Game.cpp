@@ -14,7 +14,7 @@ void Game::FixedUpdate()
 
 void Game::Update()
 {
-
+	Shader::DrawStaticGui();
 }
 
 void Game::Draw()
@@ -34,32 +34,43 @@ void Game::Run()
 
 	currentGame = this;
 
-	Vec3 v[] =
+	Vec3 verts[] =
 	{
-			{ -0.5f, -0.5f, 0.0f },
-			{  0.5f, -0.5f, 0.0f },
-			{  0.5f,  0.5f, 0.0f },
+		{ -0.5f, -0.5f, 0.0f },
+		{  0.5f, -0.5f, 0.0f },
+		{  0.5f,  0.5f, 0.0f },
 
-			{  0.5f,  0.5f, 0.0f },
-			{ -0.5f,  0.5f, 0.0f },
-			{ -0.5f, -0.5f, 0.0f },
+		{  0.5f,  0.5f, 0.0f },
+		{ -0.5f,  0.5f, 0.0f },
+		{ -0.5f, -0.5f, 0.0f },
+	};
+
+	Vec2 uvs[] =
+	{
+		{ 0.0f, 0.0f },
+		{ 1.0f, 0.0f },
+		{ 1.0f, 1.0f },
+
+		{ 1.0f, 1.0f },
+		{ 0.0f, 1.0f },
+		{ 0.0f, 0.0f },
 	};
 
 	quad = new Mesh();
-	quad->SetVertices(v, 6);
+	quad->SetVertices(verts, uvs, 6);
 
 	shader = new Shader();
 	shader->Load("./assets/shaders/sprite.vert", "./assets/shaders/sprite.frag");
 
 	while (Continue())
 	{
-		Graphics::ImGuiStartFrame();
-
 		while (fixedTime < time)
 		{
 			FixedUpdate();
 			fixedTime += fixedDeltaTime;
 		}
+
+		Graphics::ImGuiStartFrame();
 
 		float lastTime = time;
 		time = (float)glfwGetTime();

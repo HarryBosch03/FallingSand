@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Graphics.h"
 #include "Game.h"
+#include "Logging.h"
 
 void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
@@ -23,10 +24,14 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
+static void GlfwErrorCallback(int error, const char* description);
+
 void Init()
 {
 	const int defaultWindowWidth = 1280;
 	const int defaultWindowHeight = 720;
+
+	glfwSetErrorCallback(GlfwErrorCallback);
 
 	glfwInit();
 
@@ -63,4 +68,9 @@ void Cleanup()
 void FramebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+}
+
+static void GlfwErrorCallback(int error, const char* description)
+{
+	Log("GLFW Error [" << error << "] " << description);
 }

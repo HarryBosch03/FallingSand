@@ -2,9 +2,12 @@
 
 #include "Game.h"
 #include "Math.h"
+#include "imgui/imgui.h"
+#include "Logging.h"
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 std::string ReadFile(const std::string& filepath);
 
@@ -12,6 +15,9 @@ const int logSize = 512;
 char logInfo[logSize];
 
 Shader* currentlyBoundShader = nullptr;
+
+std::vector<Shader*> loadedShaders;
+Shader* errorShader = nullptr;
 
 Shader::Shader()
 {
@@ -21,6 +27,8 @@ Shader::Shader()
 	program = glCreateProgram();
 
 	success = GL_FALSE;
+
+	loadedShaders.push_back(this);
 }
 
 Shader::~Shader()
@@ -32,12 +40,19 @@ Shader::~Shader()
 
 	vertexShader = 0;
 	fragmentShader = 0;
+
+	for (size_t i = 0; i < loadedShaders.size(); i++)
+	{
+		if (loadedShaders[i] != this) continue;
+		loadedShaders.erase(loadedShaders.begin() + i);
+		break;
+	}
 }
 
 void Shader::Load(const std::string& vertexShaderFilepath, const std::string& fragmentShaderFilepath)
 {
-	this->vertexShaderFilepath = vertexShaderFilepath;
-	this->fragmentShaderFilepath = fragmentShaderFilepath;
+	this->vertexShaderFilename = vertexShaderFilepath;
+	this->fragmentShaderFilename = fragmentShaderFilepath;
 
 	Reload();
 }
@@ -60,8 +75,8 @@ void Shader::CompileShader(GLuint shader, const std::string& filepath)
 
 void Shader::Reload()
 {
-	CompileShader(vertexShader, vertexShaderFilepath);
-	CompileShader(fragmentShader, fragmentShaderFilepath);
+	CompileShader(vertexShader, vertexShaderFilename);
+	CompileShader(fragmentShader, fragmentShaderFilename);
 
 	glAttachShader(program, vertexShader);
 	glAttachShader(program, fragmentShader);
@@ -73,14 +88,30 @@ void Shader::Reload()
 		glGetProgramInfoLog(program, logSize, nullptr, logInfo);
 		std::cout <<
 			"Failed to Link Shader \"" <<
-			vertexShaderFilepath << "\" and \"" <<
-			fragmentShaderFilepath << "\"\n\n" <<
+			vertexShaderFilename << "\" and \"" <<
+			fragmentShaderFilename << "\"\n\n" <<
 			logInfo << "\n   ---------------   \n";
+	}
+	else
+	{
+		Log("Successfully Compiled \"" << vertexShaderFilename << "\"|\"" << fragmentShaderFilename << "\"");
 	}
 }
 
 void Shader::Bind()
 {
+	if (!success)
+	{
+		if (!errorShader)
+		{
+			errorShader = new Shader();
+			errorShader->Load("./assets/shaders/error.vert", "./assets/shaders/error.frag");
+		}
+		if (this == errorShader) return;
+		errorShader->Bind();
+		return;
+	}
+
 	glUseProgram(program);
 	currentlyBoundShader = this;
 
@@ -91,6 +122,26 @@ void Shader::Bind()
 
 	Mat4 projection = glm::scale(Mat4(1), { 1.0f / camSize, aspect / camSize, 1.0f });
 	Shader::SetMatrix("ProjectionMatrix", projection);
+}
+
+void Shader::DrawStaticGui()
+{
+	ImGui::Begin("Shaders");
+
+	if (ImGui::Button("Reload All Shaders")) ReloadAllShaders();
+
+	ImGui::End();
+}
+
+void Shader::ReloadAllShaders()
+{
+	std::cout << "Reloaded All Shaders...\n";
+	for (size_t i = 0; i < loadedShaders.size(); i++)
+	{
+		Shader* shader = loadedShaders[i];
+		shader->Reload();
+	}
+	std::cout << "Finished Shader Reload\n";
 }
 
 #define SHADER_SET_UNIFORM(funcName, type, call) \

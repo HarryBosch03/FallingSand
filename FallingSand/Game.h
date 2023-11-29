@@ -13,7 +13,6 @@ class Game
 	float time;
 	float fixedTime;
 
-
 	void FixedUpdate();
 	void Update();
 	void Draw();

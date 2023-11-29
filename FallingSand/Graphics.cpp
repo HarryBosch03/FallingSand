@@ -23,8 +23,9 @@ void Graphics::EndFrame()
 void Graphics::ImGuiInitialize()
 {
 	ImGui::CreateContext();
+	ImGui::StyleColorsDark();
 
-	ImGui_ImplGlfw_InitForOpenGL(MainWindow(), false);
+	ImGui_ImplGlfw_InitForOpenGL(MainWindow(), true);
 	ImGui_ImplOpenGL3_Init();
 }
 
@@ -37,18 +38,13 @@ void Graphics::ImGuiStartFrame()
 
 void Graphics::ImGuiEndFrame()
 {
-#if _DEBUG
-	ImGui::Begin("Graphics Infomation");
-	ImGui::End();
-#endif
+	ImGui::Render();
 
 	auto data = ImGui::GetDrawData();
 	if (data)
 	{
 		ImGui_ImplOpenGL3_RenderDrawData(data);
 	}
-
-	ImGui::Render();
 }
 
 void Graphics::ImGuiCleanup()

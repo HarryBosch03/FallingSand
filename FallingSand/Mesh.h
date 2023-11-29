@@ -3,10 +3,18 @@
 #include "Graphics.h"
 #include "Math.h"
 
+#include <string>
+
+struct Vertex
+{
+	Vec3 position;
+	Vec2 uv;
+};
+
 class Mesh
 {
 	GLuint vbo, vao;
-	Vec3* vertices;
+	Vertex* vertices;
 	int vertexCount;
 
 public:
@@ -15,6 +23,7 @@ public:
 	Mesh& operator=(const Mesh& other) = delete;
 	~Mesh();
 
-	void SetVertices(Vec3* loc, int count);
+	void SetVertices(Vec3* positions, Vec2* uvs, int count);
+	inline void SetVertices(Vec3* positions, int count) { SetVertices(positions, nullptr, count); }
 	void Draw(const Mat4& objectMatrix);
 };
